@@ -77,44 +77,5 @@
     </main>
     {% include "partials/footer.njk" %}
     <script src="/assets/js/site.js" defer></script>
-  <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const header = document.querySelector(".site-header");
-    const toggle = document.querySelector(".site-nav-toggle");
-    const nav = document.querySelector("#site-menu");
-
-    if (!header || !toggle || !nav) return;
-
-    toggle.addEventListener("click", function () {
-      const isOpen = header.classList.toggle("is-menu-open");
-      toggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
-      toggle.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
-    });
-
-    nav.querySelectorAll("a").forEach((link) => {
-      link.addEventListener("click", function () {
-        header.classList.remove("is-menu-open");
-        toggle.setAttribute("aria-expanded", "false");
-        toggle.setAttribute("aria-label", "Open menu");
-      });
-    });
-
-    document.addEventListener("click", function (event) {
-      if (!header.contains(event.target)) {
-        header.classList.remove("is-menu-open");
-        toggle.setAttribute("aria-expanded", "false");
-        toggle.setAttribute("aria-label", "Open menu");
-      }
-    });
-
-    document.addEventListener("keydown", function (event) {
-      if (event.key === "Escape") {
-        header.classList.remove("is-menu-open");
-        toggle.setAttribute("aria-expanded", "false");
-        toggle.setAttribute("aria-label", "Open menu");
-      }
-    });
-  });
-</script>
   </body>
 </html>
