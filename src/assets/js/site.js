@@ -17,7 +17,10 @@ document.addEventListener("DOMContentLoaded", () => {
     toggle.setAttribute("aria-label", "Close menu");
   };
 
-  toggle.addEventListener("click", () => {
+  toggle.addEventListener("click", (event) => {
+    event.preventDefault();
+    event.stopPropagation();
+
     const isOpen = header.classList.contains("is-menu-open");
     if (isOpen) {
       closeMenu();
@@ -27,7 +30,12 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   document.addEventListener("click", (event) => {
-    if (!header.contains(event.target)) {
+    if (!header.classList.contains("is-menu-open")) return;
+
+    const clickedToggle = toggle.contains(event.target);
+    const clickedInsideNav = nav.contains(event.target);
+
+    if (!clickedToggle && !clickedInsideNav) {
       closeMenu();
     }
   });
