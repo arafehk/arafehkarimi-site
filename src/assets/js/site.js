@@ -1,0 +1,46 @@
+document.addEventListener("DOMContentLoaded", () => {
+  const header = document.querySelector(".site-header");
+  const toggle = document.querySelector(".site-nav-toggle");
+  const nav = document.querySelector(".site-nav");
+
+  if (!header || !toggle || !nav) return;
+
+  const closeMenu = () => {
+    header.classList.remove("is-menu-open");
+    toggle.setAttribute("aria-expanded", "false");
+    toggle.setAttribute("aria-label", "Open menu");
+  };
+
+  const openMenu = () => {
+    header.classList.add("is-menu-open");
+    toggle.setAttribute("aria-expanded", "true");
+    toggle.setAttribute("aria-label", "Close menu");
+  };
+
+  toggle.addEventListener("click", () => {
+    const isOpen = header.classList.contains("is-menu-open");
+    if (isOpen) {
+      closeMenu();
+    } else {
+      openMenu();
+    }
+  });
+
+  document.addEventListener("click", (event) => {
+    if (!header.contains(event.target)) {
+      closeMenu();
+    }
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      closeMenu();
+    }
+  });
+
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > 900) {
+      closeMenu();
+    }
+  });
+});

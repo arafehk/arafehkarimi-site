@@ -1,0 +1,146 @@
+---
+title: "Articles"
+layout: "layouts/base.njk"
+permalink: "/articles/"
+description: "Essays on AI, evidence, and governance, written for people making real decisions about programmes, portfolios, and risk."
+seo_title: "Articles | Cernavia Studio"
+seo_description: "Essays on AI, evidence, and governance written for foundations, evaluation units, and public-interest teams carrying real decisions about AI and education."
+---
+
+<article class="page inner articles-page">
+  <h1>Articles</h1>
+
+  <div class="lane-hero">
+    <p class="lane-lead">
+      These pieces sit between research, fieldwork, and governance.
+    </p>
+    <p class="lane-bridge">
+      They are written for people who have to turn complex, often conflicting inputs into decisions that affect teachers, neurodivergent families, learners, and staff, and who need something more useful than generic AI narratives.
+    </p>
+    <p class="lane-bridge">
+      This is a growing library of how I think about AI, evidence, workload, and governance in practice: how I read research, how I treat frontline accounts, and how I frame options and risk when the decision in front of you is real rather than hypothetical.
+    </p>
+  </div>
+
+  <section class="content-section articles-section">
+    <div class="articles-section-head">
+      <h2>Three starting points</h2>
+      <p>
+        A quick way into the library, depending on the kind of decision or concern you are carrying.
+      </p>
+    </div>
+
+    <div class="articles-featured-grid">
+      <a class="article-feature-card" href="/articles/ai-teacher-workload/">
+        <span class="article-topic">Evidence &amp; Options</span>
+        <h3>AI and Teacher Workload in Schools</h3>
+        <p class="article-summary">
+          A decision-grade synthesis of what current evidence really says about AI and teacher workload. It moves beyond “time-saving” claims and shows how implementation and governance redistribute effort into verification, oversight, and professional judgement.
+        </p>
+        <p class="article-use">
+          <strong>Use this if:</strong> you work on programmes and policy and need to brief colleagues, boards, or ministries on what AI is actually doing to teacher time.
+        </p>
+        <p class="article-read">Read article →</p>
+      </a>
+
+      <a class="article-feature-card" href="/articles/ai-education-leadership-attunement-sovereignty/">
+        <span class="article-topic">Leadership &amp; Governance</span>
+        <h3>AI in Education Leadership: From Attunement to Sovereignty</h3>
+        <p class="article-summary">
+          This piece connects AI adoption to questions of leadership, sovereignty, and institutional responsibility. It looks at how leaders can move beyond “AI literacy” and hold context, relational risk, and long-term accountability more clearly.
+        </p>
+        <p class="article-use">
+          <strong>Use this if:</strong> you are in a leadership, governance, or portfolio role and need language for why AI is a sovereignty and accountability question.
+        </p>
+        <p class="article-read">Read article →</p>
+      </a>
+
+      <a class="article-feature-card" href="/articles/held-moments-guardrails-policies/">
+        <span class="article-topic">Judgement &amp; Risk</span>
+        <h3>Held Moments: Are Guardrails and Policies Enough to Protect Learning?</h3>
+        <p class="article-summary">
+          This piece starts from lived classroom and safeguarding moments to show where technically compliant systems still erode culture, care, and equity. It surfaces the gap between formal guardrails and what actually needs to be held.
+        </p>
+        <p class="article-use">
+          <strong>Use this if:</strong> you are concerned about shadow risk and want language for the governance gaps that remain even when policies, filters, and guardrails are in place.
+        </p>
+        <p class="article-read">Read article →</p>
+      </a>
+    </div>
+  </section>
+
+  <section class="content-section articles-section">
+    <div class="articles-guidance-card">
+      <h2>How to use this library</h2>
+      <p>
+        If you come from evaluation or programme work, start with the teacher workload piece. If governance and risk are your immediate concern, start with <em>Held Moments</em>.
+      </p>
+      <p>
+        All three are written so you can lift language and framing directly into your own briefs, internal notes, or board papers.
+      </p>
+      <p>
+        These articles are also the clearest way to see how I think before commissioning anything. In that sense, they are the public version of a scoping conversation.
+      </p>
+    </div>
+  </section>
+
+  <section class="content-section articles-section">
+    <div class="articles-section-head">
+      <h2>All published pieces</h2>
+      <p>
+        As the library grows, all essays and judgement notes will appear here.
+      </p>
+    </div>
+
+    <div class="article-list">
+      {% for article in collections.articles | reverse %}
+        <article class="article-card">
+          {% if article.data.topic %}
+            <p class="article-topic">{{ article.data.topic }}</p>
+          {% endif %}
+
+          <h3><a href="{{ article.url }}">{{ article.data.title }}</a></h3>
+
+          {% if article.data.summary %}
+            <p class="article-summary">
+              {{ article.data.summary | striptags | truncate(260, true, '…') }}
+            </p>
+          {% elseif article.data.description %}
+            <p class="article-summary">
+              {{ article.data.description }}
+            </p>
+          {% endif %}
+
+          <p class="article-meta">
+            {% if article.date %}
+              <time datetime="{{ article.date | date('yyyy-MM-dd') }}">
+                {{ article.date | date('d MMM yyyy') }}
+              </time>
+            {% endif %}
+            {% if article.data.reading_time_minutes %}
+              {% if article.date %} · {% endif %}
+              ~{{ article.data.reading_time_minutes }} min read
+            {% endif %}
+          </p>
+        </article>
+      {% endfor %}
+    </div>
+  </section>
+
+  <section class="contact-cta article-cta">
+    <div class="contact-cta-grid">
+      <div>
+        <p class="contact-cta-kicker">What happens after reading</p>
+        <h2>Use the library as a starting point, not the whole conversation</h2>
+        <p>
+          If a piece here connects directly to a decision you are holding, the next step is usually to visit the <a href="/studio/">Studio</a> page to see how the work is structured, or go straight to <a href="/contact/">Contact</a> if you already know the decision or governance moment you need help with.
+        </p>
+      </div>
+
+      <div class="homev4-actions">
+        <a class="homev4-btn homev4-btn-light-primary" href="/contact/">Contact</a>
+        <a class="homev4-btn homev4-btn-light-secondary" href="/studio/">See the studio</a>
+      </div>
+    </div>
+  </section>
+</article>

@@ -1,0 +1,41 @@
+{% set currentUrl = page.url | default("/") %}
+
+<header class="site-header">
+  <div class="wrap site-header-inner">
+    <a href="/" class="site-brand" aria-label="Cernavia Studio home">
+      <img
+        class="site-brand-logo site-brand-logo-full"
+        src="/assets/img/cernavia-logo-full-dark.svg"
+        alt="Cernavia Studio"
+      >
+      <img
+        class="site-brand-logo site-brand-logo-mark"
+        src="/assets/img/cernavia-mark-dark.svg"
+        alt="Cernavia Studio"
+      >
+    </a>
+
+    <button
+      class="site-nav-toggle"
+      type="button"
+      aria-expanded="false"
+      aria-controls="site-menu"
+      aria-label="Open menu"
+    >
+      <span class="site-nav-toggle-line"></span>
+      <span class="site-nav-toggle-line"></span>
+      <span class="site-nav-toggle-line"></span>
+    </button>
+
+    <nav class="site-nav" id="site-menu" aria-label="Main navigation">
+      <ul>
+        <li><a href="/studio/" {% if currentUrl == "/studio/" %}aria-current="page"{% endif %}>Studio</a></li>
+        <li><a href="/evidence-synthesis/" {% if currentUrl == "/evidence-synthesis/" %}aria-current="page"{% endif %}>Evidence &amp; Learning</a></li>
+        <li><a href="/governance/" {% if currentUrl == "/governance/" %}aria-current="page"{% endif %}>Governance</a></li>
+        <li><a href="/articles/" {% if currentUrl == "/articles/" or currentUrl.startsWith("/articles/") %}aria-current="page"{% endif %}>Articles</a></li>
+        <li><a href="/about/" {% if currentUrl == "/about/" %}aria-current="page"{% endif %}>About</a></li>
+        <li><a href="/contact/" {% if currentUrl == "/contact/" %}aria-current="page"{% endif %}>Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>

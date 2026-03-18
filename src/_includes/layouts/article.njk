@@ -1,0 +1,58 @@
+---
+layout: layouts/base.njk
+---
+
+<article class="page inner article-page">
+  <p class="article-back-link">
+    <a href="/articles/">← Back to all articles</a>
+  </p>
+
+  {% if topic %}
+    <p class="article-topic article-topic-top">{{ topic }}</p>
+  {% endif %}
+
+  <h1>{{ title }}</h1>
+
+  {% if description %}
+    <p class="lane-lead article-lead">
+      {{ description }}
+    </p>
+  {% endif %}
+
+  {% if date or reading_time_minutes %}
+    <p class="article-meta">
+      {% if date %}
+        <time datetime="{{ date | date('yyyy-MM-dd') }}">
+          {{ date | date('d MMM yyyy') }}
+        </time>
+      {% endif %}
+      {% if reading_time_minutes %}
+        {% if date %} · {% endif %}
+        ~{{ reading_time_minutes }} min read
+      {% endif %}
+    </p>
+  {% endif %}
+
+  <div class="article-body">
+    {{ content | safe }}
+  </div>
+
+  <section class="contact-cta article-cta">
+    <div class="contact-cta-grid">
+      <div>
+        <p class="contact-cta-kicker">If this connects to a live decision</p>
+        <h2>Use the article as a starting point, not the whole conversation</h2>
+        <p>
+          These essays are the public edge of the work. If this piece touches a programme,
+          governance question, or board decision you are holding, the next step is usually a
+          short note outlining the context, the timing, and what you are trying to decide.
+        </p>
+      </div>
+
+      <div class="homev4-actions">
+        <a class="homev4-btn homev4-btn-light-primary" href="/contact/">Contact</a>
+        <a class="homev4-btn homev4-btn-light-secondary" href="/studio/">See the studio</a>
+      </div>
+    </div>
+  </section>
+</article>

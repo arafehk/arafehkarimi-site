@@ -1,0 +1,13 @@
+{
+  "name": "cernavia-studio",
+  "version": "1.0.0",
+  "description": "Static site for Arafeh Karimi / Cernavia Studio",
+  "scripts": {
+    "build": "npx @11ty/eleventy",
+    "serve": "npx @11ty/eleventy --serve",
+    "watch": "npx @11ty/eleventy --watch"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.0.0"
+  }
+}
