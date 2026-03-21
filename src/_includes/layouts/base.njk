@@ -6,9 +6,9 @@
 
     {% set defaultTitle = "Arafeh Karimi | Cernavia Studio — Independent Judgement & Sensemaking" %}
     {% set defaultDescription = "Independent judgement, research, and advisory work across AI, education, and public-interest systems." %}
-    {% set pageTitle = seo_title or (title ~ " · " ~ site.title) or defaultTitle %}
+    {% set pageTitle = seo_title or (title ~ " | " ~ site.title) or defaultTitle %}
     {% set pageDescription = seo_description or description or defaultDescription %}
-    {% set og_image = og_image or "/assets/og-image.jpg" %}
+    {% set og_image = og_image or "/assets/img/og-image.jpg" %}
     {% set pageUrl = site.url ~ page.url if site.url and page.url else "" %}
     {% set isArticle = page.url and page.url != "/articles/" and page.url.indexOf("/articles/") == 0 %}
 
